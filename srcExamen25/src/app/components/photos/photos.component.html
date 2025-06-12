@@ -1,0 +1,22 @@
+ <!-- PHOTO -->
+    <div class="container-view-three">
+        <div class="photos-view-three">
+            <div>
+                <div id='render-more'>
+                    <button (click)="onBackClick()">Atrás</button>
+                </div>
+                
+                @if (!photoGrande) {
+
+                @for(photo of getSprites(); track photo) {
+                    <img [src]="photo" (click)="onImagenClick(photo)" style="width: 24%;" alt="imagen">
+                }
+            } @else {
+                <img [src]="photoGrande" (click)="onImagenClick(photoGrande)" style="width: 100%;" alt="imagen grande">
+            }            
+                
+                
+                
+            </div>
+        </div>
+    </div>

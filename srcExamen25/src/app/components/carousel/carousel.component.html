@@ -1,0 +1,43 @@
+<!-- CAROUSEL -->
+<div id='render-more'>
+    <button (click)="getCharacters()">PERSONAJES</button>
+    <button (click)="getEpisodes()">EPISODIOS</button>
+</div>
+<div class="content">
+    <div class="grid">
+        <div class="card">
+            @if(!showEpisodes) {
+                @if(characterResults && characterResults.length > 0) {
+                    <div class='photo' [ngStyle]="{
+                        'background-image': 'url(' + characterResults[currentIndex].image + ')'
+                    }"></div>
+                    <div class="footer">
+                        <div class="titles">
+                            <h2 class='card-title'>{{characterResults[currentIndex].name}}</h2>
+                        </div>
+                    </div>
+                }
+            } @else {
+                @if(episodeResults && episodeResults.length > 0) {
+                    <div class='photo' [ngStyle]="{
+                        'background-image': 'url(https://hips.hearstapps.com/hmg-prod/images/rick-morty-1536587740.jpg?crop=0.75xw:1xh;center,top&resize=400:*)'
+                    }"></div>
+                    <div class="footer">
+                        <div class="titles">
+                            <h2 class='card-title'>{{episodeResults[currentIndex].name}}</h2>
+                            
+                        </div>
+                    </div>
+                }
+            }
+            <div id='render-more'>
+                <button (click)="previusItem()">ANTERIOR</button>
+                <button (click)="nextItem()">SIGUIENTE</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div id='render-more'>
+    <button (click)="previusPage()">ANTERIORES</button>
+    <button (click)="nextPage()">SIGUIENTES</button>
+</div>

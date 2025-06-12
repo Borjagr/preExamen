@@ -1,0 +1,6 @@
+@if (!selectedPokemon) {
+    <app-pokemon (select)="onPokemonSelect($event)"></app-pokemon>
+
+} @else {
+<app-photos (back)="onBack()" [selectedPokemon]="this.selectedPokemon"></app-photos>}
+

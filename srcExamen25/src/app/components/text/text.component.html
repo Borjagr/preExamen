@@ -1,0 +1,37 @@
+<!-- EJERCICIO 4  -->
+        <section>
+            @if(!busqueda) {
+         
+            <form (ngSubmit)="onSubmit()" [formGroup]="reactiveForm">
+                <div class="answer-bank">
+                    <div class="answer">
+                        <input type="text" name="word" id="word" placeholder="Palabra" formControlName="word"/>
+                    </div>
+                    <div class="answer">
+                        <input type="submit" value="Enviar" class="primary" />
+                    </div>
+                </div>
+            </form>
+            }
+        </section>
+    
+        @if(busqueda && !resultados) {
+            
+        
+        <div id='render-more'>
+            <button (click)="getDefinitions()">Significados</button>
+            <button (click)="getSynonyms()">Sinónimos</button>
+            <button (click)="getAntonyms()">Antónimos</button>
+        </div>
+        }
+
+        @if (resultados) {
+
+    <div id='render-more'>
+        @for (item of arrayResultados; track item) {
+        <p>{{item}}</p>
+        }
+        
+        <button (click)="onBack()">Volver</button>
+        <button (click)="onNewSearch()">Nueva búsqueda</button>
+    </div>}

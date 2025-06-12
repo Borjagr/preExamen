@@ -1,0 +1,23 @@
+<div id="page">
+    <section>
+        <div class="grid">
+            <!-- POKEMON -->
+            @for (poke of pokemonsArray; track poke.name) {
+            <div class="card" (click)="onClick(poke)">
+                <div
+          class="photo"
+          [ngStyle]="{
+            'background-image': 'url(' + poke.sprites.front_default + ')'
+          }"
+        ></div>
+                <div class="footer">
+                    <div class="titles">
+                        <h2 class='card-title
+                                    '>{{poke.name}}</h2>
+                    </div>
+                </div>
+            </div>
+            }
+        </div>
+    </section>
+</div>
