@@ -1,0 +1,50 @@
+<div id="page">
+
+        <section>
+            @if (showForm) {
+            <form (ngSubmit)="onSubmit()" [formGroup]="reactiveForm" method="post">
+                <div class="answer-bank">
+                    <div class="answer">
+                        <input formControlName="name" type="text" name="name" id="name" value="nombre" placeholder="nombre"/>
+                    </div>
+                    <div class="answer">
+                        <input type="submit" value="Enviar" class="primary" />
+                    </div>
+                </div>
+            </form>
+        }
+        </section>
+        <section>
+            <div class="content">
+                <div class="grid">
+                    <!-- CARD -->
+                     @for (character of characters; track character.id) {
+                    <div class="card">
+                        <div class="photo" [style.background-image]="'url(' + character.image + ')'">
+                        </div>
+                        <div class="footer">
+                            <div class="titles">
+                                <h2 class="card-title">{{ character.name }}</h2>
+                            <h3>{{ character.status }}</h3>
+                            </div>
+                            <div class="bigger">
+                                <div class="trigger">Ampliar</div>
+                            </div>
+                        </div>
+                    </div>
+                }
+
+
+                </div>
+
+                @if (characters.length > 0) {
+            <div id='render-more'>
+                <button (click)="previousPage()" [disabled]="currentPage === 1">ANTERIORES</button>
+    <button (click)="nextPage()" [disabled]="currentPage === totalPages">SIGUIENTES</button>
+            </div>
+            }
+            </div>
+
+        </section>
+
+    </div>
